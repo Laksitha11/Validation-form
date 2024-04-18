@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Next Page</title>
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  
+  <style>
+    body {
+      background-color: #f8f9fa; 
+    }
+
+    .container {
+      background-color: #ffffff; 
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); 
+    }
+
+    .header {
+      color: #007bff; 
+    }
+
+    .thank-you {
+      color: #28a745; 
+    }
+
+    .form-data {
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container mt-5">
+  <h2 class="text-center mb-4 header">Registration Successful !!!</h2>
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div id="form-data-display" class="form-data"></div>
+    </div>
+  </div>
+  <h4 class="text-center mt-4 thank-you">***Thank you for registering***</h4>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+  
+  function getUrlParams() {
+    var params = {};
+    window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(str, key, value) {
+      params[key] = decodeURIComponent(value);
+    });
+    return params;
+  }
+
+  
+  var formData = getUrlParams();
+
+ 
+  var displayElement = document.getElementById('form-data-display');
+  for (var key in formData) {
+    displayElement.innerHTML += '<p><strong>' + key + ':</strong> ' + formData[key] + '</p>';
+  }
+</script>
+
+</body>
+</html>
